@@ -28,13 +28,13 @@ cursor = db_connection.cursor()
 
 #Sélection des enregistrements
 
-cursor.execute("SELECT first_name, name, cellphone_number FROM Employee;")
+cursor.execute("SELECT first_name, name, birth_date FROM Employee;")
 
 #Création de la liste des employés
 rows = cursor.fetchall()
 print(' <ol>')
 for row in rows:
-    print(' <li>' + row['first_name'] + ' ' + row['name'] + ' ' + row['cellphone_number'] + '</li>')
+    print(' <li>' + row['first_name'] + ' ' + row['name'] + ' ' + row['birth_date'] + '</li>')
 print(' </ol>')
 
 #Formulaire de recherche des employés d'un service
