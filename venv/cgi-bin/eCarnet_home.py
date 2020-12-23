@@ -21,52 +21,52 @@ print("""<?xml version="1.0" encoding="UTF-8"?>
     <h2>Employés</h2>
  """)
  
- #Connexion à la base de données
- db_connection = sqlite3.connect('myDB.db')
- db_connection.row_factory = sqlite3.Row
- cursor = db_connection.cursor()
- 
- #Sélection des enregistrements
- 
- cursor.execute("SELECT fist_name, name, phone_number FROM Employee")
- 
- #Création de la liste des employés
- rows = cursor.fetchall()
- print(' <ol>')
- for row in rows:
-    print(' <li>' + row['first_name'] + ' ' + row['name'] + ' ' + row['phone_number'] + '</li>')
- print(' </ol>')
- 
- #Formulaire de recherche des employés d'un service
- print("""<h2>Employés par service</h2>
-    <form action="eCarnet_service.py" method="get">
-    <p><select name="service">""")
-    cursor.execute("SELECT id, name FROM service")
-    rows = cursor.fetchall()
-    for row in rows:
-        print(' <option value="' + str(row['id']) + '">' + row['name'] + '</option>')
-        print("""</select><input type="submit" value="Lister"/></p></form>""")
-        
- 
+#Connexion à la base de données
+db_connection = sqlite3.connect('myDB.db')
+db_connection.row_factory = sqlite3.Row
+cursor = db_connection.cursor()
 
- #Formulaire d'ajout d'un nouvel employé
- print("""<h2>Ajouter un nouvel employé</h2>
-    <from action="eCarnet_add_employee.py method="get">
+#Sélection des enregistrements
+
+cursor.execute("SELECT first_name, name, cellphone_number FROM Employee;")
+
+#Création de la liste des employés
+rows = cursor.fetchall()
+print(' <ol>')
+for row in rows:
+    print(' <li>' + row['first_name'] + ' ' + row['name'] + ' ' + row['cellphone_number'] + '</li>')
+print(' </ol>')
+
+#Formulaire de recherche des employés d'un service
+print("""<h2>Employés par service</h2>
+<form action="eCarnet_service.py" method="get">
+<p><select name="service">""")
+cursor.execute("SELECT id, name FROM service;")
+rows = cursor.fetchall()
+for row in rows:
+    print(' <option value="' + str(row['id']) + '">' + row['name'] + '</option>')
+print("""</select><input type="submit" value="Lister"/></p></form>""")
+    
+
+
+#Formulaire d'ajout d'un nouvel employé
+print("""<h2>Ajouter un nouvel employé</h2>
+    <form action="eCarnet_add_employee.py" method="get">
     <p>Prénom : <input type="text" name="first_name" /></p>
     <p>Nom :  <input type="text" name="name" /></p>
     <p>Matricule :  <input type="text" name="registration_number" /></p>
     <p>Tél. fixe :  <input type="text" name="phone_number" /></p>
     <p>Service :  <select name="service">
- """)
-    
- for row in rows:
+""")
+
+for row in rows:
     print(' <option value="' + str(row['id']) + '">' + row['name'] + '</option>')
 
-print("""</select></p>
+print(""" </select></p>
     <p><input type="submit" value="Ajouter" /></p>
     </form>
     </body>
-    </html>
+   </html>
 """)
 
 db_connection.close()
