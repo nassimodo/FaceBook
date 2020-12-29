@@ -11,31 +11,35 @@ header{
 
 body{
 	margin: 0;
-	padding:0;
+	padding: 0;
 	font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
 	font-size: 11px;
 	color: #000333;
 }
 
+
 body#loginPage section#content{
 	position: absolute;
 	top: 150px;
 	left: 50%;
-	width: 500px;
+	width:400px;
 	margin: 0 0 0 -250px;
-	padding:0;
+	padding: 0;
+	/*border-style: solid;
+	border-width: 1px;
+	border-color: #d9dfea #0e1f5b #0e1f5b #d9dfea;*/
 }
 
 form label{
-	display: inline-block;
-	width:150px;
+	display: block;
+	width:100px;
 	float: left;
 	text-align: right;
 	padding: 4px 10px 0 0;
 }
 
 form input[type = "email"], form input[type = "text"], form input[type = "password"]{
-	margin: 0 0px 0 160px;
+	margin: 0 0 0 0;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d9dfea #0e1f5b #0e1f5b #d9dfea;
@@ -47,5 +51,12 @@ form input[type = "email"], form input[type = "text"], form input[type = "passwo
 
 a{
 	color: #3b5998;
+}
+
+ul.errorlist {
+	margin-left: 160px;
+	padding:0;
+	list-style-type: none;
+	color: #d23d24;
 }
 
