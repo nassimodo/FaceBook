@@ -16,10 +16,13 @@ Including another URLconf
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
+from django.contrib import admin
 from .views import *
 
 urlpatterns = [
     url('^$', login),
     url('^login$', login),
     url('^welcome$',welcome),
+    url('^register$', register),
+    url('^admin/', admin.site.urls)
 ]
